@@ -2,6 +2,8 @@ import reslist from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./shimmer";
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
+
 //body
 const Body = () => {
   //useState hooks
@@ -25,15 +27,16 @@ const Body = () => {
     );
   };
 
-  if(listofrestaurant.length === 0){
-    return <Shimmer/>
+  if (listofrestaurant.length === 0) {
+    return <Shimmer />;
   }
 
   return (
     <div className="body">
       <div className="search">search</div>
       <div className="filter">
-        <button className="filter-btn"
+        <button
+          className="filter-btn"
           onClick={() => {
             const filteredList = listofrestaurant.filter(
               (res) => res.info.avgRating > 4,
@@ -47,7 +50,10 @@ const Body = () => {
       <div className="res-container">
         {listofrestaurant.map((restaurant) => {
           return (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+            // <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+            <Link to={"/res/" + restaurant.info.id} key={restaurant.info.id}>
+              <RestaurantCard resData={restaurant} />
+            </Link>
           );
         })}
       </div>

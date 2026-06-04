@@ -7,6 +7,7 @@ import reslist from "./src/utils/mockData";
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
+import Restaurentmenu from "./src/components/Restaurentmenu";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
@@ -39,11 +40,16 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
-      
+
       {
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/res/:id",
+        element: <Restaurentmenu />,
+
+      }
     ],
   },
 ]);
