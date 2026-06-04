@@ -364,3 +364,113 @@ body{
 .nav a:hover::after {
   width: 100%;
 }
+
+.resInfo {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Restaurant Name */
+.resInfo h1 {
+  font-size: 2rem;
+  color: #1c1c1c;
+  margin-bottom: 10px;
+}
+
+/* Cuisine */
+.resInfo h2:first-of-type {
+  color: #686b78;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Cost */
+.resInfo h3 {
+  display: inline-block;
+  background: #e7f7ed;
+  color: #1ba672;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+/* Menu Heading */
+.resInfo h2:last-of-type {
+  margin-top: 25px;
+  color: #fc8019;
+  border-bottom: 2px solid #fc8019;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Menu List */
+.resInfo ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* Menu Items */
+.resInfo li {
+  background: #f8f8f8;
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border-left: 5px solid #fc8019;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.resInfo li:hover {
+  background: #fff3e8;
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(252, 128, 25, 0.15);
+}
+
+/* Scrollable Menu (optional for long menus) */
+.resInfo ul {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar */
+.resInfo ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.resInfo ul::-webkit-scrollbar-thumb {
+  background: #fc8019;
+  border-radius: 10px;
+}
+
+.resInfo ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .resInfo {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .resInfo h1 {
+    font-size: 1.6rem;
+  }
+
+  .resInfo li {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+}

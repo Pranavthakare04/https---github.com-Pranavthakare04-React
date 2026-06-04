@@ -4,7 +4,9 @@ import { useParams } from "react-router";
 
 const Restaurentmenu = () => {
   const [resMenu, setResMenu] = useState(null);
-//   console.log(resMenu);
+  //   console.log(resMenu);
+
+  const {id} = useParams();
 
   useEffect(() => {
     fetchData();
@@ -12,16 +14,19 @@ const Restaurentmenu = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.52110&lng=73.85020&restaurantId=21001",
+      "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.52110&lng=73.85020&restaurantId="+id ,
     );
     const json = await data.json();
     console.log(json);
     setResMenu(json.data);
   };
 
-  const {name, cuisines, costForTwoMessage} = resMenu?.cards[2]?.card?.card?.info || {};
+  const { name, cuisines, costForTwoMessage } =
+    resMenu?.cards[2]?.card?.card?.info || {};
 
-  const {itemCards} = resMenu?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || {}; 
+  const { itemCards } =
+    resMenu?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+      ?.card || {};
 
   if (!resMenu) {
     return <div>Loading...</div>;
@@ -34,11 +39,16 @@ const Restaurentmenu = () => {
       <h3>{costForTwoMessage}</h3>
       <h2>MENU : </h2>
 
-      <h1>{itemCards[0].card.info.name}</h1>
+      {/* <h1>{itemCards[0].card.info.name}</h1>
       <h1>{itemCards[1].card.info.name}</h1>
       <h1>{itemCards[2].card.info.name}</h1>
-      <h1>{itemCards[3].card.info.name}</h1>
-      <h1>{itemCards[4].card.info.name}</h1>
+      <h1>{itemCards[3].card.info.name}</h1> */}
+
+      <ul>
+        {itemCards?.map((item) => (
+          <li key={item.card.info.id}>{item.card.info.name}</li>
+        ))}
+      </ul>
     </div>
   );
 };
