@@ -318,6 +318,7 @@ body{
 }
 
 .filter-btn{
+  margin-left: 40px;
   padding: 12px 25px;
   background-color: #d4a373;
   color: white;
@@ -546,7 +547,7 @@ body{
   }
 }
 
-/* User Info Card*/
+/* User Info Card || About */
 .userInfo{
   max-width: 400px;
   margin: 30px auto;
@@ -556,6 +557,14 @@ body{
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+}
+
+.userInfo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
 .userInfo h2 {

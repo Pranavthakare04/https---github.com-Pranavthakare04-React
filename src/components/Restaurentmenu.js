@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { res_url } from "../utils/constants";
 
 const Restaurentmenu = () => {
   const [resMenu, setResMenu] = useState(null);
@@ -55,8 +56,7 @@ const Restaurentmenu = () => {
     <li key={item.card.info.id} className="menu-item">
       <img
         src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
-          item.card.info.imageId
+          res_url + item.card.info.imageId
         }
         alt={item.card.info.name}
         className="menu-img"
