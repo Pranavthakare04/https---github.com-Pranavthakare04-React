@@ -7,4 +7,4 @@ const Error = () => {
   )
 }
 
-export default Error
+export default Error;

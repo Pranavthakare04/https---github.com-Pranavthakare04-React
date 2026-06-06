@@ -44,11 +44,41 @@ const Restaurentmenu = () => {
       <h1>{itemCards[2].card.info.name}</h1>
       <h1>{itemCards[3].card.info.name}</h1> */}
 
-      <ul>
+      {/* <ul>
         {itemCards?.map((item) => (
           <li key={item.card.info.id}>{item.card.info.name}</li>
         ))}
-      </ul>
+      </ul> */}
+
+      <ul className="menu-list">
+  {itemCards?.map((item) => (
+    <li key={item.card.info.id} className="menu-item">
+      <img
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
+          item.card.info.imageId
+        }
+        alt={item.card.info.name}
+        className="menu-img"
+      />
+
+      <div className="menu-details">
+        <h3>{item.card.info.name}</h3>
+        <p>
+          ₹
+          {(item.card.info.price ||
+            item.card.info.defaultPrice) / 100}
+        </p>
+      </div>
+
+      <div className="menu-description">
+        <p>
+          {(item.card.info.description)}
+        </p>
+      </div>
+    </li>
+  ))}
+</ul>
     </div>
   );
 };
