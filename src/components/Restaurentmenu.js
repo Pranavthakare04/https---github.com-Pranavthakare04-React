@@ -7,7 +7,7 @@ const Restaurentmenu = () => {
   const [resMenu, setResMenu] = useState(null);
   //   console.log(resMenu);
 
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchData();
@@ -15,7 +15,9 @@ const Restaurentmenu = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.52110&lng=73.85020&restaurantId="+id ,
+      "https://corsproxy.io/?url=" +
+        "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.52110&lng=73.85020&restaurantId=" +
+        id,
     );
     const json = await data.json();
     console.log(json);
@@ -52,33 +54,27 @@ const Restaurentmenu = () => {
       </ul> */}
 
       <ul className="menu-list">
-  {itemCards?.map((item) => (
-    <li key={item.card.info.id} className="menu-item">
-      <img
-        src={
-          res_url + item.card.info.imageId
-        }
-        alt={item.card.info.name}
-        className="menu-img"
-      />
+        {itemCards?.map((item) => (
+          <li key={item.card.info.id} className="menu-item">
+            <img
+              src={res_url + item.card.info.imageId}
+              alt={item.card.info.name}
+              className="menu-img"
+            />
 
-      <div className="menu-details">
-        <h3>{item.card.info.name}</h3>
-        <p>
-          ₹
-          {(item.card.info.price ||
-            item.card.info.defaultPrice) / 100}
-        </p>
-      </div>
+            <div className="menu-details">
+              <h3>{item.card.info.name}</h3>
+              <p>
+                ₹{(item.card.info.price || item.card.info.defaultPrice) / 100}
+              </p>
+            </div>
 
-      <div className="menu-description">
-        <p>
-          {(item.card.info.description)}
-        </p>
-      </div>
-    </li>
-  ))}
-</ul>
+            <div className="menu-description">
+              <p>{item.card.info.description}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

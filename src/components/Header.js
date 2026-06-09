@@ -12,6 +12,7 @@ const Header = () => {
         />
       </div>
       <div className="nav">
+        <nav id ="WebName">Cravyo</nav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
