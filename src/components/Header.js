@@ -1,18 +1,24 @@
+import { useState } from "react";
 import { logo_url } from "../utils/constants";
-import {Link} from "react-router";
+import { Link } from "react-router";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="header">
       <div className="logocontainer">
-        <img
-          src = {logo_url}
-          alt="logo"
-          className="logo"
-        />
+        <img src={logo_url} alt="logo" className="logo" />
       </div>
-      <div className="nav">
-        <nav id ="WebName">Cravyo</nav>
+
+      {/* Hamburger Menu */}
+      <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        ☰
+      </button>
+
+      <div className={`nav ${menuOpen ? "active" : ""}`}>
+        <Link to="/">
+          <h1>Cravyo</h1>
+        </Link>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
@@ -22,4 +28,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;
