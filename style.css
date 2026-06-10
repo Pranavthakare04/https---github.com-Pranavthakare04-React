@@ -16,64 +16,63 @@ body{
 
 /* HEADER */
 
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 60px;
-  position:sticky;
-  top:0;
-  z-index:1000;
-
-  backdrop-filter:blur(12px);
-  background:rgba(255,255,255,0.8);
-
-  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-.logo{
-  width:90px;
-  border-radius:50%;
-  cursor:pointer;
-  transition:0.4s;
+.brand {
+  text-decoration: none;
 }
 
-.logo:hover{
-  transform:rotate(10deg) scale(1.1);
+.brand h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: #fc8019;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
-.nav ul{
-  display:flex;
-  gap:40px;
-  list-style:none;
+.brand h1:hover {
+  color: #ff6b35;
+  transform: scale(1.05);
 }
 
-.nav li{
-  font-size:17px;
-  font-weight:600;
-  color:#333;
-  cursor:pointer;
-  position:relative;
-  transition:0.3s;
+/* Hide hamburger on desktop */
+.menu-toggle {
+  display: none;
 }
+/* Header Mobile */
+@media (max-width: 768px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
 
-.nav li::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0%;
-  height:3px;
-  background:#fc8019;
-  transition:0.3s;
-}
+  .brand h1 {
+    font-size: 26px;
+  }
 
-.nav li:hover::after{
-  width:100%;
-}
-
-.nav li:hover{
-  color:#fc8019;
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #fc8019;
+    cursor: pointer;
+  }
 }
 
 /* SEARCH */
@@ -263,13 +262,6 @@ body{
 /* MOBILE */
 
 @media(max-width:768px){
-
-  .header{
-    flex-direction:column;
-    gap:15px;
-    padding:20px;
-  }
-
   .nav ul{
     gap:18px;
     flex-wrap:wrap;
@@ -493,25 +485,11 @@ body{
   }
 }
 
-/* Hamburger */
-.menu-toggle {
-  display: none;
-  border: none;
-  background: transparent;
-  font-size: 28px;
-  color: #fc8019;
-  cursor: pointer;
-}
-
 /* Mobile */
 @media (max-width: 768px) {
   .header {
     position: relative;
     padding: 15px 20px;
-  }
-
-  .menu-toggle {
-    display: block;
   }
 
   .nav {
