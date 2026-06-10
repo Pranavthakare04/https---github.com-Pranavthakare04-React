@@ -19,7 +19,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       // "https://corsproxy.io/?url=" +
-      "https://demodata-76qi.onrender.com/api/restaurants/",
+      "https://demodata-rhx7.onrender.com/api/restaurants/",
     );
     const json = await data.json();
     console.log(json);
